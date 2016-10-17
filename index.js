@@ -31,7 +31,7 @@
 	if ( typeof module == 'object' && typeof module.exports == 'object' ) {
 		module.exports = uid;
 	} else {
-		glob.inherit = uid;
+		glob.uid = uid;
 	}
 
 })(this);
