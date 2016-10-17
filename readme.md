@@ -28,6 +28,9 @@ var uid = require('s-uid');
 uid(); // "sbhcsnb-nlu9-7hgl-ejtc-n6iibgp"
 
 // generate from costom base
+uid('SSSSSS'); // "bfvuuq"
+uid('NNNNNN'); // "928890"
+uid('XXXXXX'); // "5tr8lh"
 uid('XXX-4NNN-dummy-SSS'); // "uf3-4223-dummy-qea"
 
 ```
