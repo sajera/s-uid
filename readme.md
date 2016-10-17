@@ -1,6 +1,6 @@
 s-uid
 ===============
-An easy way to make inheritance classes
+An easy way to generate id
 
 ```shell
 npm i s-uid --save
@@ -25,7 +25,7 @@ Example
 var uid = require('s-uid');
 
 // generate from default base (just random not more)
-uid();						// => "sbhcsnb-nlu9-7hgl-ejtc-n6iibgp"
+uid();		// => "sbhcsnb-nlu9-7hgl-ejtc-n6iibgp"
 
 // generate from costom base
 uid('SSSSSS');				// => "bfvuuq"
@@ -34,13 +34,14 @@ uid('XXXXXX');				// => "5tr8lh"
 uid('XXX-4NNN-dummy-SSS');	// => "uf3-4223-dummy-qea"
 
 ```
+
 Debug
 --------------
 debug state for id generation
 
 ```javascript
  // wrong data type -> It will be replaced by default
-uid(null);					// => "jofq9u5-gdge-mt5n-icb3-bltdcu4"
+uid(null);		// => "jofq9u5-gdge-mt5n-icb3-bltdcu4"
 
 uid.DEBUG = true;
  // wrong data type -> It throw an Error
