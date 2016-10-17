@@ -1,3 +1,6 @@
+
+[![NPM version][npm-image]][npm-url]
+
 s-uid
 ===============
 An easy way to generate id
@@ -48,3 +51,7 @@ uid.DEBUG = true;
 uid(null); 
 
 ```
+
+
+[npm-image]: https://badge.fury.io/js/s-uid.svg
+[npm-url]: https://npmjs.org/package/s-uid
