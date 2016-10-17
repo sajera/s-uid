@@ -1,0 +1,21 @@
+{
+  "name": "s-uid",
+  "version": "1.0.0",
+  "description": "Generate id from base string",
+  "main": "index.js",
+  "scripts": {
+    "debug": "devtool test"
+  },
+  "homepage": "https://github.com/sajera/s-uid#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sajera/s-uid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sajera/s-uid/issues"
+  },
+  "keywords": ["s-uid", "uid", "id"],
+  "author": "Sajera: Serhii P <allsajera@gmail.com>",
+  "license": "MIT",
+  "dependencies": {}
+}
