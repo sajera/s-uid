@@ -5,6 +5,7 @@ s-uid
 ===============
 An easy way to generate id
 
+### installation
 ```shell
 npm i s-uid --save
 ```
