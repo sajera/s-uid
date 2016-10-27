@@ -1,5 +1,6 @@
 
 [![NPM version][npm-image]][npm-url]
+[![License][license-image]][license-url]
 
 s-uid
 ===============
@@ -56,3 +57,5 @@ uid(null);
 
 [npm-image]: https://badge.fury.io/js/s-uid.svg
 [npm-url]: https://npmjs.org/package/s-uid
+[license-image]: http://img.shields.io/npm/l/is-arguments.svg
+[license-url]: LICENSE
