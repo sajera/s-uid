@@ -14,7 +14,11 @@
   "bugs": {
     "url": "https://github.com/sajera/s-uid/issues"
   },
-  "keywords": ["s-uid", "uid", "id"],
+  "keywords": [
+    "s-uid",
+    "uid",
+    "id"
+  ],
   "author": "Sajera: Serhii P <allsajera@gmail.com>",
   "license": "MIT",
   "dependencies": {}
