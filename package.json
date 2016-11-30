@@ -1,10 +1,10 @@
 {
   "name": "s-uid",
-  "version": "1.0.3",
+  "version": "1.2.0",
   "description": "Generate id from base string",
   "main": "index.js",
   "scripts": {
-    "debug": "devtool test"
+    "debug": "node test"
   },
   "homepage": "https://github.com/sajera/s-uid#readme",
   "repository": {
