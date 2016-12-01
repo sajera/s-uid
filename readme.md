@@ -31,14 +31,14 @@ Example
 var uid = require('s-uid');
 
 // generate from default base (just random not more)
-uid();						// => "qathj9r9-na5d-1fpj-12ar-uhnh6q0ff7ov"
+uid();                      // => "qathj9r9-na5d-1fpj-12ar-uhnh6q0ff7ov"
 
 // generate from costom base
-uid('SSSSSS');				// => "bfvuuq"
-uid('NNNNNN');				// => "928890"
-uid('HHHHHH');				// => "5tr8lh"
-uid('XXXXXX');				// => "a3620b"
-uid('XXX-4NNN-dummy-SSS');	// => "uf3-4223-dummy-qea"
+uid('SSSSSS');              // => "bfvuuq"
+uid('NNNNNN');              // => "928890"
+uid('HHHHHH');              // => "5tr8lh"
+uid('XXXXXX');              // => "a3620b"
+uid('XXX-4NNN-dummy-SSS');  // => "uf3-4223-dummy-qea"
 
 // based on time
 uid.guid();                 // => "iw55yhp7-4bka-fokl-9kl7-8bpuiiokgmlb"
@@ -50,7 +50,7 @@ uid.guid('M', 'N', time);   // => "iw562dp7-4bka-Moko-Nlp7-i4uc4vhk55d8"
 uid.guid('M', 'N', time);   // => "iw562dp7-4bka-Moko-Nlp7-ugc0jon8i0c7"
 
 // time hash
-uid.th();                   // => "iw56co3w"
+uid.th();                   // => "iw562dp7"
 // time humanize           
 uid.time();                 // => "2016-10-30-18:57"
 // sweet
@@ -63,7 +63,7 @@ debug state for id generation
 
 ```javascript
  // wrong data type -> It will be replaced by default
-uid(null);					// => "msqr3mi0-qni5-1rea-15te-akgospni6o2m"
+uid(null);                  // => "msqr3mi0-qni5-1rea-15te-akgospni6o2m"
 
 uid.DEBUG = true;
 // wrong data type -> It throw an Error
