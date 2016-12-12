@@ -1,6 +1,6 @@
 
 console.log('test');
-var uid = require('./index.js');
+var uid = require('./uid.min.js');
 
 function matchGuid ( key ) {
     key = key || 100;
@@ -35,11 +35,11 @@ function timeGuid ( key ) {
 var browser;
 if ( browser = typeof window != 'undefined' ) {
     window.uid = uid;
-    window.test = function ( count ) {
+    (function ( count ) {
         timeUid(count);
         timeGuid(count);
         matchGuid(count);
-    };
+    })(1*1000); // careful indexOf is hard to find matches in big array (many times)
 }
 var max = 40;
 var low = 40;

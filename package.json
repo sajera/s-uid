@@ -1,8 +1,8 @@
 {
   "name": "s-uid",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Generate id from base string",
-  "main": "index.js",
+  "main": "uid.min.js",
   "scripts": {
     "debug": "node test"
   },
@@ -21,5 +21,13 @@
   ],
   "author": "Sajera: Serhii P <allsajera@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-order": "^1.1.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-wrap": "^0.13.0",
+    "s-is": "^1.2.0"
+  }
 }
