@@ -4,7 +4,8 @@
   "description": "Generate id from base string",
   "main": "uid.min.js",
   "scripts": {
-    "debug": "node test"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "devtool test"
   },
   "homepage": "https://github.com/sajera/s-uid#readme",
   "repository": {

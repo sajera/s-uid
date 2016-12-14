@@ -5,9 +5,20 @@ s-uid
 ===============
 An easy way to generate id
 
-### installation
+# s-uid
+
+**Let me introduce a simple way to generate custom id.**
+
+### installation for ```Node.js```
+
 ```shell
 npm i s-uid --save
+```
+
+### installation for ```Browser```
+
+```shell
+bower i s-uid --save
 ```
 
 ID

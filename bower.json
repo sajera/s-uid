@@ -1,0 +1,31 @@
+{
+    "name": "s-uid",
+    "main": "uid.min.js",
+    "version": "1.3.0",
+    "private": false,
+    "description": "Generate id from base string",
+    "ignore": [
+        "node_modules",
+        "bower_components",
+        "package.json",
+        "bower.json",
+        "gulpfile.js",
+        "lib",
+        "test.*"
+    ],
+    "keywords": [
+        "s-uid",
+        "uid"
+    ],
+    "homepage": "https://github.com/sajera/s-uid",
+    "authors": [
+        "Sajera: Serhii P <allsajera@gmail.com>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sajera/s-uid.git"
+    },
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {}
+}
