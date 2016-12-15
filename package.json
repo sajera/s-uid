@@ -5,6 +5,7 @@
   "main": "uid.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "rebuild": "gulp concat&gulp minify",
     "debug": "devtool test"
   },
   "homepage": "https://github.com/sajera/s-uid#readme",
