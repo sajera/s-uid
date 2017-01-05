@@ -15,7 +15,7 @@ function src ( name ) {
             'guid.js',
             'define.js'
         ]))
-        .pipe( require('gulp-concat')(name||'declare.js') )
+        .pipe( require('gulp-concat')(name||'uid.js') )
         .pipe( wrapper(anonymous) );
 }
 
