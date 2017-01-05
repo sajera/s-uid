@@ -4,6 +4,7 @@ var uid = require('./uid.min.js');
 
 function matchGuid ( key ) {
     key = key || 100;
+    console.time('match uid count: '+key);
     var time = new Date;
     var tmp;
     var examples = [];
@@ -16,6 +17,7 @@ function matchGuid ( key ) {
         examples.push( tmp );
     }
     console.log('at one time '+key+' id without match');
+    console.timeEnd('match uid count: '+key);
 }
 
 function timeUid ( key ) {
