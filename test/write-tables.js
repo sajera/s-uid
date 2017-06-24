@@ -1,6 +1,6 @@
 
-console.log('test');
-var uid = require('./uid.min.js');
+console.log('write-tables');
+var uid = require('../s-uid.min.js');
 
 function matchGuid ( key ) {
     key = key || 100;
@@ -73,7 +73,7 @@ function table ( name, methods, testData ) {
     // make first headers row
     var table = yellow(td(name, max))+'|';
     for ( var method of methods ) table += td(method.replace(/[\(]/g,''), low)+'|';
-    // data result rows    
+    // data result rows
     for (var field in testData ) {
         table+='\n'+line;
         table+=('\n'+td(field, max)+'|');
@@ -88,9 +88,7 @@ function table ( name, methods, testData ) {
 };
 // write tables
 console.log(table('S-UID',
-    [
-        'uid('
-    ], {
+    ['uid('], {
         'undefined'             : '',
         'String  ""'            : '',
         'NNNNNN'                : '\'NNNNNN\'',
@@ -103,41 +101,36 @@ console.log(table('S-UID',
 '\n');
 
 console.log(table('S-UID time based hash',
-    [
-        'uid.th('
-    ], {
+    ['uid.th('], {
         'undefined'             : '',
         'String  ""'            : '',
-        'Number  0'             : '0',
-        'Number 10'             : '10',
-        'Number 16'             : '16',
-        'Number 32'             : '32',
-        'Number 36'             : '36',
+        'Number 4'              : 'null, 4',
+        'Number 10'             : 'null, 10',
+        'Number 16'             : 'null, 16',
+        'Number 32'             : 'null, 32',
+        'Number 36'             : 'null, 36',
     }),
 '\n');
 
 console.log(table('S-UID time humanized',
-    [
-        'uid.time('
-    ], {
+    ['uid.time('], {
         'undefined'             : '',
         'String  ""'            : '',
-        '("-",":")'             : '"-",":"',
-        '("_","_")'             : '"_","_"',
-        '("",":")'              : '"",":"',
-        '("&","&")'             : '"&","&"',
+        '("-",":")'             : 'null,"-",":"',
+        '("_","_")'             : 'null,"_","_"',
+        '("",":")'              : 'null,"",":"',
+        '("&","&")'             : 'null,"&","&"',
+        '("&",":","&")'         : 'null,"&",":","&"',
     }),
 '\n');
 
 console.log(table('S-UID guid',
-    [
-        'uid.guid('
-    ], {
+    ['uid.guid('], {
         'undefined'             : '',
         'String  ""'            : '',
         '("M","N")'             : '"M","N"',
         '("V","")'              : '"V",""',
         '("","N")'              : '"","N"',
-        '("2","4")'             : '"&","&"',
+        '("2","4")'             : '"2","4"',
     }),
 '\n');

@@ -83,6 +83,9 @@ uid(null);
 ```
 
 
+#### [```API documentation ```](https://github.com/sajera/s-uid/blob/master/doc/API.md)
+
+
 [npm-image]: https://badge.fury.io/js/s-uid.svg
 [npm-url]: https://npmjs.org/package/s-uid
 [license-image]: http://img.shields.io/npm/l/s-uid.svg

@@ -1,0 +1,14 @@
+node_modules/*
+bower_components/*
+old/*
+lib/*
+tables/*
+test/*
+*.log
+*.md
+bower.json
+gulpfile.js
+.eslintrc.json
+.gitignore
+.npmignore
+.editorconfig
