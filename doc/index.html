@@ -1,0 +1,588 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>S-UID 1.3.1 | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation'>
+  <div class='max-width-4 mx-auto'>
+    <div class='clearfix md-mxn2'>
+      <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>S-UID</h3>
+          <div class='mb1'><code>1.3.1</code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#uid'
+                  class="">
+                  uid
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#th'
+                  class="">
+                  th
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#_date'
+                  class="">
+                  _date
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#time'
+                  class="">
+                  time
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#uidguid'
+                  class="">
+                  uid.guid
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#exports'
+                  class="">
+                  exports
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div class='fix-margin-3'>
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='uid'>
+      uid
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>generate a random string by base</p>
+
+
+  <div class='pre p1 fill-light mt0'>uid(base: any): any</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>base</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        : { String }
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='th'>
+      th
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>hash based on time in 36 numerical system by default</p>
+
+
+  <div class='pre p1 fill-light mt0'>th(base: any, time: any): any</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>base</span> <code class='quiet'>(any)</code>
+	    : { Number } - 
+[
+option
+]
+ expect 2-36 (36)
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>time</span> <code class='quiet'>(any)</code>
+	    : { Object } - 
+[
+option
+]
+ expect new Date()
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        : { String } - hash
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='_date'>
+      _date
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>humanized time stamp</p>
+
+
+  <div class='pre p1 fill-light mt0'>_date</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>sep</span> <code class='quiet'>(any)</code>
+	    : { String } - expect '-'
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>time</span> <code class='quiet'>(any)</code>
+	    : { Object } - expect new Date()
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        : { String }
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='time'>
+      time
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>slowest humanized time stamp with checks</p>
+
+
+  <div class='pre p1 fill-light mt0'>time(sep1: any, sep2: any, time: any): any</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>sep1</span> <code class='quiet'>(any)</code>
+	    : { String } - 
+[
+option
+]
+ expect '-'
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>sep2</span> <code class='quiet'>(any)</code>
+	    : { String } - 
+[
+option
+]
+ expect ':'
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>time</span> <code class='quiet'>(any)</code>
+	    : { Object } - 
+[
+option
+]
+ expect new Date()
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        : { String }
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='uidguid'>
+      uid.guid
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>generate uuid (xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx)
+based on time, reserved characters and random symbols</p>
+
+
+  <div class='pre p1 fill-light mt0'>uid.guid(M: any, N: any, time: any): any</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>M</span> <code class='quiet'>(any)</code>
+	    : { String } - 
+[
+M: random english symbol
+]
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>N</span> <code class='quiet'>(any)</code>
+	    : { String } - 
+[
+N: random number
+]
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>time</span> <code class='quiet'>(any)</code>
+	    : { Date } - 
+[
+time: new Date()
+]
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        : { String }
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>uid.guid();
+uid.guid(<span class="hljs-string">'M'</span>, <span class="hljs-number">0</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>() );</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='exports'>
+      exports
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>defination on platforms (both variants on platform like Electron)</p>
+<p>bower i --save s-uid</p>
+<p>npm i --save s-uid</p>
+
+
+  <div class='pre p1 fill-light mt0'>exports</div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-built_in">window</span>.uid || <span class="hljs-built_in">window</span>[<span class="hljs-string">'s-uid'</span>] <span class="hljs-comment">// in browser</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">var</span> uid = <span class="hljs-built_in">require</span>(<span class="hljs-string">'s-uid'</span>)    <span class="hljs-comment">// in Node.js</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>
