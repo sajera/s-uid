@@ -4,6 +4,7 @@
   "description": "Generate id from base string",
   "main": "uid.min.js",
   "scripts": {
+    "tables": "node test/write-tables",
     "rebuild": "gulp build&&npm run test&&gulp doc&&gulp doc-md",
     "test": "gulp lint&&gulp test",
     "debug": "devtool s-uid"
