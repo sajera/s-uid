@@ -105,7 +105,7 @@ uid.th(null, 4);
 uid.th(new Date(), 10);
 ```
 
-Returns **any** : { String } - hash string
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** hash string
 
 ## uid.guid
 

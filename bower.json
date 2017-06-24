@@ -1,7 +1,6 @@
 {
   "name": "s-uid",
   "main": "s-uid.min.js",
-  "version": "1.3.0",
   "private": false,
   "description": "Generate id from base string",
   "ignore": [

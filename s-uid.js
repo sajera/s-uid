@@ -130,7 +130,7 @@ uid['time'] = function ( time, separator1, separator2, separator3 ) {
 
  * @param { Date } [date]:[default: new Date()] - instance of Date constructor
  * @param { Number } - [bit]:[default:  36] - expect number 2-36
- * @returns: { String } - hash string
+ * @returns { String } - hash string
  * @function uid.th
  * @public
  */
