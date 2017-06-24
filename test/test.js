@@ -7,14 +7,6 @@ var uid = require('../s-uid.min.js');
 var expect = require('chai').expect;
 var assert = require('chai').assert;
 
-function timeGuid ( key ) {
-    var x = (key = key || 100);
-    var time = new Date;
-    console.time('uid.guid count: '+x);
-    while (key--) uid.guid('Q', null, time)
-    console.timeEnd('uid.guid count: '+x);
-}
-
 /**
  * indexOf work very slow with gigantic array
  * this is a reason why i create many arrays to matching unique
@@ -38,12 +30,6 @@ function customMatching ( uniq, store ) {
 }
 
 describe('TESTS', function () {
-
-    // before(function() { console.log('before'); });
-    // after(function() { console.log('after'); });
-
-    // beforeEach(function() { console.log('beforeEach'); });
-    // afterEach(function() { console.log('afterEach'); });
 
     describe('uid() case default base', function () {
 
