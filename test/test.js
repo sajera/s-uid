@@ -1,31 +1,12 @@
-
-console.log('test');
+/*
+* Unit tests for s-uid.min.js
+*/
 var uid = require('../s-uid.min.js');
 
-function matchGuid ( key ) {
-    key = key || 100;
-    console.time('match uid count: '+key);
-    var time = new Date;
-    var tmp;
-    var examples = [];
-    for ( ; key > examples.length; ) {
-        tmp = uid.guid('Q', null, time);
-        if ( examples.indexOf(tmp) > -1 ) {
-            throw new Error('match ID at '+examples.length+' => '+tmp);
-            break;
-        }
-        examples.push( tmp );
-    }
-    console.log('at one time '+key+' id without match');
-    console.timeEnd('match uid count: '+key);
-}
+// require('chai').should();
+var expect = require('chai').expect;
+var assert = require('chai').assert;
 
-function timeUid ( key ) {
-    var x = (key = key || 100);
-    console.time('uid count: '+x);
-    while (key--) uid();
-    console.timeEnd('uid count: '+x);
-}
 function timeGuid ( key ) {
     var x = (key = key || 100);
     var time = new Date;
@@ -34,103 +15,171 @@ function timeGuid ( key ) {
     console.timeEnd('uid.guid count: '+x);
 }
 
-var browser;
-if ( browser = typeof window != 'undefined' ) {
-    window.uid = uid;
-    (function ( count ) {
-        timeUid(count);
-        timeGuid(count);
-        matchGuid(count);
-    })(1*1000); // careful indexOf is hard to find matches in big array (many times)
-}
-var max = 40;
-var low = 40;
-function red ( text ) {
-    if (browser) return text;
-    return '\x1B[0m\x1B[41m'+text+'\x1B[49m\x1B[0m';
-}
-function green ( text ) {
-    if (browser) return text;
-    return '\x1B[0m\x1B[42m'+text+'\x1B[49m\x1B[0m';
-}
-function yellow ( text ) {
-    if (browser) return text;
-    return '\x1B[0m\x1B[43m'+text+'\x1B[49m\x1B[0m';
-}
-function delimiter ( length ) {
-    var list = [];
-    list[length] = '';
-    return list.join('-');
-};
-function td ( str, len ) {
-    str = str.length % 2 == 0 ? str : str+' ';
-    var list = [];
-    list[(len - str.length)/2] = '';
-    return list.join(' ')+str+list.join(' ');
-};
-function table ( name, methods, testData ) {
-    var line = delimiter(max+1+(methods.length*(low+1)));
-    // make first headers row
-    var table = yellow(td(name, max))+'|';
-    for ( var method of methods ) table += td(method.replace(/[\(]/g,''), low)+'|';
-    // data result rows
-    for (var field in testData ) {
-        table+='\n'+line;
-        table+=('\n'+td(field, max)+'|');
-        for ( var method of methods ) {
-            try {
-                var res = eval(method+testData[field]+')');
-            } catch ( e ) { var res = 'ERROR'; };
-            table += res ? green(td(res.toString(), low))+'|' : red(td(res.toString(), low))+'|';
-        }
+/**
+ * indexOf work very slow with gigantic array
+ * this is a reason why i create many arrays to matching unique
+ * It's amazing, but it works much faster
+ * @param: { String } uniq - Value to be checked for uniqueness
+ * @param: { Array } store - array with arrays with values to be compared
+ * @returns { Boolean }
+ * @function
+ * @public
+ */
+function customMatching ( uniq, store ) {
+    for ( var arr of store ) {
+        if ( arr.indexOf(uniq) > -1 ) return true;
     }
-    return line+'\n'+table+'\n'+line;
-};
-// write tables
-console.log(table('S-UID',
-    ['uid('], {
-        'undefined'             : '',
-        'String  ""'            : '',
-        'NNNNNN'                : '\'NNNNNN\'',
-        'HHHHHH'                : '\'HHHHHH\'',
-        'SSSSSS'                : '\'SSSSSS\'',
-        'XXXXXX'                : '\'XXXXXX\'',
-        'XXX-4NNN-dummy-SSS'    : '\'XXX-4NNN-dummy-SSS\'',
-        'Super-XXX-NNN-HHH-SSS' : '\'Super-XXX-NNN-HHH-SSS\'',
-    }),
-'\n');
+    if ( store[store.length-1].length < 100 ) {
+        store[store.length-1].push(uniq);
+    } else {
+        store.push([uniq]);
+    }
+    return false;
+}
 
-console.log(table('S-UID time based hash',
-    ['uid.th('], {
-        'undefined'             : '',
-        'String  ""'            : '',
-        'Number 4'              : 'null, 4',
-        'Number 10'             : 'null, 10',
-        'Number 16'             : 'null, 16',
-        'Number 32'             : 'null, 32',
-        'Number 36'             : 'null, 36',
-    }),
-'\n');
+describe('TESTS', function () {
 
-console.log(table('S-UID time humanized',
-    ['uid.time('], {
-        'undefined'             : '',
-        'String  ""'            : '',
-        '("-",":")'             : 'null,"-",":"',
-        '("_","_")'             : 'null,"_","_"',
-        '("",":")'              : 'null,"",":"',
-        '("&","&")'             : 'null,"&","&"',
-        '("&",":","&")'         : 'null,"&",":","&"',
-    }),
-'\n');
+    // before(function() { console.log('before'); });
+    // after(function() { console.log('after'); });
 
-console.log(table('S-UID guid',
-    ['uid.guid('], {
-        'undefined'             : '',
-        'String  ""'            : '',
-        '("M","N")'             : '"M","N"',
-        '("V","")'              : '"V",""',
-        '("","N")'              : '"","N"',
-        '("2","4")'             : '"2","4"',
-    }),
-'\n');
+    // beforeEach(function() { console.log('beforeEach'); });
+    // afterEach(function() { console.log('afterEach'); });
+
+    describe('uid() case default base', function () {
+
+        it('simple data types', function () {
+            assert.isString(uid(), 'must be a string');
+            assert.equal(uid().length, '36', 'lenght of default base must be 36');
+            assert.equal(uid().split('-').length, '5', 'default base Consists of 5 parts');
+        });
+
+        it('uid log time of creation 10 000 uids', function () {
+            var key = 10*1000;
+            console.time('uid case default base: 10 000');
+            while (key--) uid();
+            console.timeEnd('uid case default base: 10 000');
+        });
+
+        it('uid matches 10 000 uids', function () {
+            var key = 10*1000;
+            var storeUid = [[]];
+            while ( key-- ) {
+                assert.isNotTrue(
+                    customMatching(uid(), storeUid),
+                    'match found on '+key+' item !'
+                );
+            }
+        });
+    });
+
+    describe('uid("XXX-4NNN-dummy-SSS") case custom base', function () {
+
+        it('simple data types', function () {
+            assert.isString(uid('XXX-4NNN-dummy-SSS'), 'must be a string');
+            assert.equal(uid('XXX-4NNN-dummy-SSS').length, '18', 'lenght of custom base must be 18');
+            assert.equal(uid('XXX-4NNN-dummy-SSS').split('-').length, '4', 'custom base Consists of 4 parts');
+        });
+
+        it('uid log time of creation 10 000 uids', function () {
+            var key = 10*1000;
+            console.time('uid case XXX-4NNN-dummy-SSS base: 10 000');
+            while (key--) uid('XXX-4NNN-dummy-SSS');
+            console.timeEnd('uid case XXX-4NNN-dummy-SSS base: 10 000');
+        });
+
+        it('uid matches 10 000 uids', function () {
+            var key = 10*1000;
+            var storeUid = [[]];
+            while ( key-- ) {
+                assert.isNotTrue(
+                    customMatching(uid('XXX-4NNN-dummy-SSS'), storeUid),
+                    'match found on '+key+' item !'
+                );
+            }
+        });
+    });
+
+    describe('uid.guid() default', function () {
+
+        it('simple data types', function () {
+            assert.isString(uid.guid(), 'must be a string');
+            assert.equal(uid.guid().split('-').length, '5', 'default base Consists of 5 parts');
+        });
+
+        it('uid.guid log time of creation 10 000 guids', function () {
+            var key = 10*1000;
+            console.time('uid.guid case default 10 000');
+            while (key--) uid.guid();
+            console.timeEnd('uid.guid case default 10 000');
+        });
+
+        it('uid.guid matches 10 000 uids based on one time', function () {
+            // iven fast match its to long for "chai"
+            this.timeout(10*1000);
+            var key = 10*1000;
+            var time = new Date();
+            var storeGuid = [[]];
+            while ( key-- ) {
+                assert.isNotTrue(
+                    customMatching(uid.guid(null, null, time), storeGuid),
+                    'match found on '+key+' item !'
+                );
+            }
+        });
+
+    });
+
+    describe('uid.time()', function () {
+
+        it('default simple data types', function () {
+            assert.isString(uid.time(), 'must be a string');
+            assert.equal(uid.time().length, '16', 'lenght of time must be 16');
+        });
+
+        it('based on July 21, 1983 01:15:00', function () {
+            assert.equal(
+                uid.time(new Date('July 21, 1983 01:15:00'),'_','_','_'),
+                '1983_06_21_01_15',
+                'parse error'
+            );
+        });
+
+    });
+
+    describe('uid.th()', function () {
+
+        it('default simple data types', function () {
+            assert.isString(uid.th(), 'must be a string');
+        });
+
+        it('based on July 21, 1983 01:15:00', function () {
+            assert.equal(
+                uid.th(new Date('July 21, 1983 01:15:00'), 2),
+                '110001110001110001100000110101010100000',
+                'convert error on 2 bit'
+            );
+            assert.equal(
+                uid.th(new Date('July 21, 1983 01:15:00'), 4),
+                '12032032030012222200',
+                'convert error on 4 bit'
+            );
+            assert.equal(
+                uid.th(new Date('July 21, 1983 01:15:00'), 10),
+                '427587300000',
+                'convert error on 10 bit'
+            );
+            assert.equal(
+                uid.th(new Date('July 21, 1983 01:15:00'), 18),
+                '22e7a704g0',
+                'convert error on 18 bit'
+            );
+            assert.equal(
+                uid.th(new Date('July 21, 1983 01:15:00'), 36),
+                '5gfifs80',
+                'convert error on 36 bit'
+            );
+        });
+
+    });
+
+});

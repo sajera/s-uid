@@ -4,8 +4,8 @@
   "description": "Generate id from base string",
   "main": "uid.min.js",
   "scripts": {
-    "rebuild": "gulp build&npm run test&gulp doc&gulp doc-md",
-    "test": "gulp lint&gulp test",
+    "rebuild": "gulp build&&npm run test&&gulp doc&&gulp doc-md",
+    "test": "gulp lint&&gulp test",
     "debug": "devtool s-uid"
   },
   "homepage": "https://github.com/sajera/s-uid#readme",
