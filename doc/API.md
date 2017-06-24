@@ -2,47 +2,110 @@
 
 ## uid
 
-generate a random string by base
+generate random id based on template string.
+Default template string is 'xxxxxxxx-xxxx-1xxx-1xxx-xxxxxxxxxxxx'.
+
+> Template rules very simple:
+>
+> **base** - it's a string for creating id. Rewrite only special characters
+>
+> **N** - Rewrite to random Number
+>
+> **H** - Rewrite to random hex numder
+>
+> **S** - Rewrite to random english symbol
+>
+> **X** - Rewrite to any from "N","H","S"
 
 **Parameters**
 
--   `base`  
+-   `base` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: 'XXXXXXXX-XXXX-1XXX-1XXX-XXXXXXXXXXXX']
 
-Returns **any** : { String }
+**Examples**
 
-## th
+```javascript
+uid();
+uid('XXX-4NNN-dummy-SSS');
+```
+
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+## uid.\_time
+
+Humanized time string.
+This method is very sensitive to the correctness of the input arguments
+
+**Parameters**
+
+-   `separator` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Separator character for output
+-   `date` **[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)** instance of Date constructor
+
+**Examples**
+
+```javascript
+uid._time('-', new Date() );
+```
+
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+## uid.\_date
+
+Humanized date string.
+This method is very sensitive to the correctness of the input arguments
+
+**Parameters**
+
+-   `separator` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Separator character for output
+-   `date` **[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)** instance of Date constructor
+
+**Examples**
+
+```javascript
+uid._date('-', new Date() );
+```
+
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+## uid.time
+
+Humanized date+time string. Safe method.
+
+**Parameters**
+
+-   `date` **[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)?** :[default: new Date()] - instance of Date constructor
+-   `separator1` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: ' - '] - Separator character for output date
+-   `separator2` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: ' \s '] - Separator character for output bitwin date and time
+-   `separator3` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: ' : '] - Separator character for output time
+-   `time`  
+
+**Examples**
+
+```javascript
+uid.time();
+uid.time( new Date() );
+uid.time( new Date(), '-', ':', '-');
+```
+
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+## uid.th
 
 hash based on time in 36 numerical system by default
 
 **Parameters**
 
--   `base`  : { Number } - [option] expect 2-36 (36)
--   `time`  : { Object } - [option] expect new Date()
+-   `date` **[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)?** :[default: new Date()] - instance of Date constructor
+-   `Number` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** [bit]&#x3A;[default:  36] - expect number 2-36
 
-Returns **any** : { String } - hash
+**Examples**
 
-## \_date
+```javascript
+uid.th();
+uid.th(null, 4);
+uid.th(new Date(), 10);
+```
 
-humanized time stamp
-
-**Parameters**
-
--   `sep`  : { String } - expect '-'
--   `time`  : { Object } - expect new Date()
-
-Returns **any** : { String }
-
-## time
-
-slowest humanized time stamp with checks
-
-**Parameters**
-
--   `sep1`  : { String } - [option] expect '-'
--   `sep2`  : { String } - [option] expect ':'
--   `time`  : { Object } - [option] expect new Date()
-
-Returns **any** : { String }
+Returns **any** : { String } - hash string
 
 ## uid.guid
 
@@ -51,9 +114,9 @@ based on time, reserved characters and random symbols
 
 **Parameters**
 
--   `M`  : { String } - [M: random english symbol]
--   `N`  : { String } - [N: random number]
--   `time`  : { Date } - [time: new Date()]
+-   `M` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** [default: random english symbol ( uid('S') )]
+-   `N` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** [default: random number ( uid('N') )]
+-   `time` **[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)?** [default: new Date()] - date of guid generation
 
 **Examples**
 
@@ -62,7 +125,7 @@ uid.guid();
 uid.guid('M', 0, new Date() );
 ```
 
-Returns **any** : { String }
+Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ## exports
 

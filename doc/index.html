@@ -35,9 +35,9 @@
               
                 
                 <li><a
-                  href='#th'
+                  href='#uid_time'
                   class="">
-                  th
+                  uid._time
                   
                 </a>
                 
@@ -45,9 +45,9 @@
               
                 
                 <li><a
-                  href='#_date'
+                  href='#uid_date'
                   class="">
-                  _date
+                  uid._date
                   
                 </a>
                 
@@ -55,9 +55,19 @@
               
                 
                 <li><a
-                  href='#time'
+                  href='#uidtime'
                   class="">
-                  time
+                  uid.time
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#uidth'
+                  class="">
+                  uid.th
                   
                 </a>
                 
@@ -106,10 +116,19 @@
   </div>
   
 
-  <p>generate a random string by base</p>
+  <p>generate random id based on template string.
+Default template string is 'xxxxxxxx-xxxx-1xxx-1xxx-xxxxxxxxxxxx'.</p>
+<blockquote>
+<p>Template rules very simple:</p>
+<p><strong>base</strong> - it's a string for creating id. Rewrite only special characters</p>
+<p><strong>N</strong> - Rewrite to random Number</p>
+<p><strong>H</strong> - Rewrite to random hex numder</p>
+<p><strong>S</strong> - Rewrite to random english symbol</p>
+<p><strong>X</strong> - Rewrite to any from "N","H","S"</p>
+</blockquote>
 
 
-  <div class='pre p1 fill-light mt0'>uid(base: any): any</div>
+  <div class='pre p1 fill-light mt0'>uid(base: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
   
   
 
@@ -125,7 +144,305 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>base</span> <code class='quiet'>(any)</code>
+            <span class='code bold'>base</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?)</code>
+	    :
+[
+default: 'XXXXXXXX-XXXX-1XXX-1XXX-XXXXXXXXXXXX'
+]
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>uid();
+uid(<span class="hljs-string">'XXX-4NNN-dummy-SSS'</span>);</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='uid_time'>
+      uid._time
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Humanized time string.
+This method is very sensitive to the correctness of the input arguments</p>
+
+
+  <div class='pre p1 fill-light mt0'>uid._time(separator: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>separator</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    Separator character for output
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>date</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>)</code>
+	    instance of Date constructor
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>uid._time(<span class="hljs-string">'-'</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>() );</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='uid_date'>
+      uid._date
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Humanized date string.
+This method is very sensitive to the correctness of the input arguments</p>
+
+
+  <div class='pre p1 fill-light mt0'>uid._date(separator: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>separator</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    Separator character for output
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>date</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>)</code>
+	    instance of Date constructor
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>uid._date(<span class="hljs-string">'-'</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>() );</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='uidtime'>
+      uid.time
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Humanized date+time string. Safe method.</p>
+
+
+  <div class='pre p1 fill-light mt0'>uid.time(date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>?, separator1: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?, separator2: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?, separator3: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?, time: any): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>date</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>?)</code>
+	    :
+[
+default: new Date()
+]
+ - instance of Date constructor
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>separator1</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?)</code>
+	    :
+[
+default: ' - '
+]
+ - Separator character for output date
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>separator2</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?)</code>
+	    :
+[
+default: ' \s '
+]
+ - Separator character for output bitwin date and time
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>separator3</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?)</code>
+	    :
+[
+default: ' : '
+]
+ - Separator character for output time
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>time</span> <code class='quiet'>(any)</code>
 	    
           </div>
           
@@ -139,8 +456,8 @@
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>:
-        : { String }
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        
 
       
     
@@ -148,6 +465,14 @@
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>uid.time();
+uid.time( <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>() );
+uid.time( <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(), <span class="hljs-string">'-'</span>, <span class="hljs-string">':'</span>, <span class="hljs-string">'-'</span>);</pre>
+    
   
 
   
@@ -165,8 +490,8 @@
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='th'>
-      th
+    <h3 class='fl m0' id='uidth'>
+      uid.th
     </h3>
     
     
@@ -176,7 +501,7 @@
   <p>hash based on time in 36 numerical system by default</p>
 
 
-  <div class='pre p1 fill-light mt0'>th(base: any, time: any): any</div>
+  <div class='pre p1 fill-light mt0'>uid.th(date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>?, Number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>): any</div>
   
   
 
@@ -192,12 +517,12 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>base</span> <code class='quiet'>(any)</code>
-	    : { Number } - 
+            <span class='code bold'>date</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>?)</code>
+	    :
 [
-option
+default: new Date()
 ]
- expect 2-36 (36)
+ - instance of Date constructor
 
           </div>
           
@@ -205,12 +530,15 @@ option
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>time</span> <code class='quiet'>(any)</code>
-	    : { Object } - 
-[
-option
+            <span class='code bold'>Number</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
+	    [
+bit
 ]
- expect new Date()
+:
+[
+default:  36
+]
+ - expect number 2-36
 
           </div>
           
@@ -225,7 +553,7 @@ option
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code>any</code>:
-        : { String } - hash
+        : { String } - hash string
 
       
     
@@ -234,180 +562,13 @@ option
   
 
   
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
+    <div class='py1 quiet mt1 prose-big'>Example</div>
     
-    <h3 class='fl m0' id='_date'>
-      _date
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>humanized time stamp</p>
-
-
-  <div class='pre p1 fill-light mt0'>_date</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
       
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>sep</span> <code class='quiet'>(any)</code>
-	    : { String } - expect '-'
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>time</span> <code class='quiet'>(any)</code>
-	    : { Object } - expect new Date()
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
+      <pre class='p1 overflow-auto round fill-light'>uid.th();
+uid.th(<span class="hljs-literal">null</span>, <span class="hljs-number">4</span>);
+uid.th(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(), <span class="hljs-number">10</span>);</pre>
     
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>:
-        : { String }
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='time'>
-      time
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>slowest humanized time stamp with checks</p>
-
-
-  <div class='pre p1 fill-light mt0'>time(sep1: any, sep2: any, time: any): any</div>
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>sep1</span> <code class='quiet'>(any)</code>
-	    : { String } - 
-[
-option
-]
- expect '-'
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>sep2</span> <code class='quiet'>(any)</code>
-	    : { String } - 
-[
-option
-]
- expect ':'
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>time</span> <code class='quiet'>(any)</code>
-	    : { Object } - 
-[
-option
-]
- expect new Date()
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>:
-        : { String }
-
-      
-    
-  
-
-  
-
   
 
   
@@ -437,7 +598,7 @@ option
 based on time, reserved characters and random symbols</p>
 
 
-  <div class='pre p1 fill-light mt0'>uid.guid(M: any, N: any, time: any): any</div>
+  <div class='pre p1 fill-light mt0'>uid.guid(M: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?, N: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?, time: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>?): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
   
   
 
@@ -453,10 +614,9 @@ based on time, reserved characters and random symbols</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>M</span> <code class='quiet'>(any)</code>
-	    : { String } - 
-[
-M: random english symbol
+            <span class='code bold'>M</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?)</code>
+	    [
+default: random english symbol ( uid('S') )
 ]
 
           </div>
@@ -465,10 +625,9 @@ M: random english symbol
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>N</span> <code class='quiet'>(any)</code>
-	    : { String } - 
-[
-N: random number
+            <span class='code bold'>N</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>?)</code>
+	    [
+default: random number ( uid('N') )
 ]
 
           </div>
@@ -477,11 +636,11 @@ N: random number
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>time</span> <code class='quiet'>(any)</code>
-	    : { Date } - 
-[
-time: new Date()
+            <span class='code bold'>time</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>?)</code>
+	    [
+default: new Date()
 ]
+ - date of guid generation
 
           </div>
           
@@ -495,8 +654,8 @@ time: new Date()
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>:
-        : { String }
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        
 
       
     
