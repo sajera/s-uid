@@ -6,7 +6,7 @@
     "rules": {
         "complexity": [2, 16],
         "max-nested-callbacks": [2, 3],
-        "max-params": [2, 3],
+        "max-params": [2, 4],
         "max-statements": [2, 30],
         "no-extra-parens": [0],
         "no-magic-numbers": [0],
