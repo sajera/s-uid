@@ -27,8 +27,6 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
-    "devtool": "^2.3.1",
-    "documentation": "^5.3.5",
     "eslint": "^3.12.2",
     "gulp": "^3.9.1",
     "devtool": "^2.3.1",
