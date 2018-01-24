@@ -19,7 +19,7 @@ Default template string is 'xxxxxxxx-xxxx-1xxx-1xxx-xxxxxxxxxxxx'.
 
 **Parameters**
 
--   `base` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: 'XXXXXXXX-XXXX-1XXX-1XXX-XXXXXXXXXXXX']
+-   `base` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: 'XXXXXXXX-XXXX-1XXX-1XXX-XXXXXXXXXXXX']
 
 **Examples**
 
@@ -28,7 +28,7 @@ uid();
 uid('XXX-4NNN-dummy-SSS');
 ```
 
-Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Returns **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ## uid.\_time
 
@@ -37,8 +37,8 @@ This method is very sensitive to the correctness of the input arguments
 
 **Parameters**
 
--   `separator` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Separator character for output
--   `date` **[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)** instance of Date constructor
+-   `separator` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Separator character for output
+-   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** instance of Date constructor
 
 **Examples**
 
@@ -46,7 +46,7 @@ This method is very sensitive to the correctness of the input arguments
 uid._time('-', new Date() );
 ```
 
-Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Returns **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ## uid.\_date
 
@@ -55,8 +55,8 @@ This method is very sensitive to the correctness of the input arguments
 
 **Parameters**
 
--   `separator` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** Separator character for output
--   `date` **[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)** instance of Date constructor
+-   `separator` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Separator character for output
+-   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)** instance of Date constructor
 
 **Examples**
 
@@ -64,7 +64,7 @@ This method is very sensitive to the correctness of the input arguments
 uid._date('-', new Date() );
 ```
 
-Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Returns **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ## uid.time
 
@@ -72,11 +72,10 @@ Humanized date+time string. Safe method.
 
 **Parameters**
 
--   `date` **[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)?** :[default: new Date()] - instance of Date constructor
--   `separator1` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: ' - '] - Separator character for output date
--   `separator2` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: ' \s '] - Separator character for output bitwin date and time
--   `separator3` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: ' : '] - Separator character for output time
--   `time`  
+-   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)?** :[default: new Date()] - instance of Date constructor
+-   `separator1` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: ' - '] - Separator character for output date
+-   `separator2` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: ' \s '] - Separator character for output bitwin date and time
+-   `separator3` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** :[default: ' : '] - Separator character for output time
 
 **Examples**
 
@@ -86,7 +85,7 @@ uid.time( new Date() );
 uid.time( new Date(), '-', ':', '-');
 ```
 
-Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Returns **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ## uid.th
 
@@ -94,8 +93,8 @@ hash based on time in 36 numerical system by default
 
 **Parameters**
 
--   `date` **[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)?** :[default: new Date()] - instance of Date constructor
--   `Number` **[Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** [bit]&#x3A;[default:  36] - expect number 2-36
+-   `date` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)?** :[default: new Date()] - instance of Date constructor
+-   `null-null` **[Number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** [bit]&#x3A;[default:  36] - expect number 2-36
 
 **Examples**
 
@@ -105,7 +104,7 @@ uid.th(null, 4);
 uid.th(new Date(), 10);
 ```
 
-Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** hash string
+Returns **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** hash string
 
 ## uid.guid
 
@@ -114,9 +113,9 @@ based on time, reserved characters and random symbols
 
 **Parameters**
 
--   `M` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** [default: random english symbol ( uid('S') )]
--   `N` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** [default: random number ( uid('N') )]
--   `time` **[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)?** [default: new Date()] - date of guid generation
+-   `M` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** [default: random english symbol ( uid('S') )]
+-   `N` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** [default: random number ( uid('N') )]
+-   `time` **[Date](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date)?** [default: new Date()] - date of guid generation
 
 **Examples**
 
@@ -125,7 +124,7 @@ uid.guid();
 uid.guid('M', 0, new Date() );
 ```
 
-Returns **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Returns **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ## exports
 
